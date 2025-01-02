@@ -11,7 +11,7 @@ dependencies = [
 pdfMakerInit = "pdf_maker_init.main:main"
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "PyInstaller"]
 build-backend = "hatchling.build"
 
 [tool.hatch.metadata]
