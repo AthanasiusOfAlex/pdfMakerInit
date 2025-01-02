@@ -13,7 +13,7 @@ def build_executable():
         '--name=pdfMakerInit',  # Name of the executable
         '--hidden-import=pdf_maker_init',  # Include your package
         '--clean',  # Clean PyInstaller cache
-        '--noconsole' # Hide console on Windows
+        #'--noconsole' # Hide console on Windows
     ])
 
 if __name__ == '__main__':
