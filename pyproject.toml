@@ -1,0 +1,18 @@
+[project]
+name = "pdf-maker-init"
+version = "0.1.0"
+description = "Sets up a directory for PDFs in the making"
+requires-python = ">=3.8"
+dependencies = [
+    "extract-tiff-from-pdf @ git+https://github.com/AthanasiusOfAlex/extractTiffFromPdf@main",
+]
+
+[project.scripts]
+pdfMakerInit = "pdf_maker_init.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
