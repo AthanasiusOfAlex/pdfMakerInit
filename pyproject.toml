@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Sets up a directory for PDFs in the making"
 requires-python = ">=3.8"
 dependencies = [
-    "extract-tiff-from-pdf @ git+https://github.com/AthanasiusOfAlex/extractTiffFromPdf@main",
+    "extract-tiff-from-pdf @ git+https://github.com/AthanasiusOfAlex/extractTiffFromPdf.git@main",
 ]
 
 [project.scripts]
