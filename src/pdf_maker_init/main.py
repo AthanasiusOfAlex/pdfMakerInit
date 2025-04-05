@@ -73,12 +73,29 @@ def move_pdf_file(pdf_file):
     dest_path = os.path.join("00-pdf-orig", "orig.pdf")
     shutil.copy2(pdf_file, dest_path)
 
+def create_dummy_files():
+    """
+    Create dummy files in specified directories with names based on the current directory.
+    """
+    # Get the name of the root directory (current working directory)
+    root_dir_name = os.path.basename(os.getcwd())
+    
+    # Create dummy PDF file
+    pdf_path = os.path.join("03-pdf-out", f"{root_dir_name}.pdf")
+    with open(pdf_path, 'w') as f:
+        pass  # Creates a 0-byte file
+    
+    # Create dummy DOCX file
+    docx_path = os.path.join("04-docx-pages", f"{root_dir_name}.docx")
+    with open(docx_path, 'w') as f:
+        pass  # Creates a 0-byte file
+
 def main():
     # Parse command line arguments
     args = parse_arguments()
     
     # Define working directories
-    directories = ['00-pdf-orig', '01-tiff', '02-tiff-out']
+    directories = ['00-pdf-orig', '01-tiff', '02-tiff-out', '03-pdf-out', '04-docx-pages']
     
     # Perform all checks before making any changes
     if not check_pdf_exists(args.pdf_file):
@@ -98,6 +115,9 @@ def main():
         
         # Extract TIFF files from PDF
         extract_tiff_from_pdf("00-pdf-orig/orig.pdf", "01-tiff/", args.resolution)
+        
+        # Create dummy files in new directories
+        create_dummy_files()
         
     except Exception as e:
         print(f"An error occurred: {str(e)}")
