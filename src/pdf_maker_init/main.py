@@ -73,7 +73,7 @@ def move_pdf_file(pdf_file):
     dest_path = os.path.join("00-pdf-orig", "orig.pdf")
     shutil.copy2(pdf_file, dest_path)
 
-def create_dummy_files():
+def create_dummy_files(root_dir_name):
     """
     Create dummy files in specified directories with names based on the current directory.
     """
@@ -90,9 +90,17 @@ def create_dummy_files():
     with open(docx_path, 'w') as f:
         pass  # Creates a 0-byte file
 
+    # Create dummy ScanTailor file
+    scan_tailor_path = f"{root_dir_name}.ScanTailor"
+    with open(scan_tailor_path, 'w') as f:
+        pass  # Creates a 0-byte file
+
 def main():
     # Parse command line arguments
     args = parse_arguments()
+
+    # Calculate root_dir_name once
+    root_dir_name = os.path.basename(os.getcwd())
     
     # Define working directories
     directories = ['00-pdf-orig', '01-tiff', '02-tiff-out', '03-pdf-out', '04-docx-pages']
