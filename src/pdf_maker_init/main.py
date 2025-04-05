@@ -68,11 +68,12 @@ def setup_directories(directories):
             shutil.rmtree(directory)
         os.makedirs(directory)
 
-def move_pdf_file(pdf_file):
+def move_pdf_file(pdf_file, root_dir_name):
     """Move the PDF file to the destination directory."""
-    dest_path = os.path.join("00-pdf-orig", "orig.pdf")
+    dest_path = os.path.join("00-pdf-orig", f"{root_dir_name}.pdf")
     shutil.copy2(pdf_file, dest_path)
-
+    return dest_path
+   
 def create_dummy_files(root_dir_name):
     """
     Create dummy files in specified directories with names based on the current directory.
@@ -119,13 +120,13 @@ def main():
         setup_directories(directories)
         
         # Copy (not move) PDF file to destination directory
-        move_pdf_file(args.pdf_file)
+        pdf_file_path = move_pdf_file(args.pdf_file, root_dir_name)
         
         # Extract TIFF files from PDF
-        extract_tiff_from_pdf("00-pdf-orig/orig.pdf", "01-tiff/", args.resolution)
+        extract_tiff_from_pdf(pdf_file_path, "01-tiff/", args.resolution)
         
         # Create dummy files in new directories
-        create_dummy_files()
+        create_dummy_files(root_dir_name)
         
     except Exception as e:
         print(f"An error occurred: {str(e)}")
