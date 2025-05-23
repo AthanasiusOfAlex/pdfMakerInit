@@ -9,10 +9,3 @@ dependencies = [
 
 [project.scripts]
 pdfMakerInit = "pdf_maker_init.main:main"
-
-[build-system]
-requires = ["hatchling", "PyInstaller"]
-build-backend = "hatchling.build"
-
-[tool.hatch.metadata]
-allow-direct-references = true

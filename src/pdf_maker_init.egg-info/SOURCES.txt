@@ -1,0 +1,9 @@
+pyproject.toml
+src/pdf_maker_init/__init__.py
+src/pdf_maker_init/main.py
+src/pdf_maker_init.egg-info/PKG-INFO
+src/pdf_maker_init.egg-info/SOURCES.txt
+src/pdf_maker_init.egg-info/dependency_links.txt
+src/pdf_maker_init.egg-info/entry_points.txt
+src/pdf_maker_init.egg-info/requires.txt
+src/pdf_maker_init.egg-info/top_level.txt
