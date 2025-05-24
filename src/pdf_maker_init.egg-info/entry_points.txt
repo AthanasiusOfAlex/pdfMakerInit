@@ -1,2 +1,0 @@
-[console_scripts]
-pdfMakerInit = pdf_maker_init.main:main

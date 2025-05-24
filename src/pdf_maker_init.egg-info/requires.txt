@@ -1,1 +1,0 @@
-extract-tiff-from-pdf@ git+https://github.com/AthanasiusOfAlex/extractTiffFromPdf.git@main
